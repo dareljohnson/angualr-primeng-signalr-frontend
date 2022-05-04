@@ -1,4 +1,6 @@
-# SignalrDemo
+# Angular Primeng Frontend for Azure SignalR Backend
+
+This is the front UI built with Angular 13 and includes PrimeNg templtes.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
