@@ -1,0 +1,46 @@
+<div class="w3-container">
+  <p-table
+    [value]="books"
+    dataKey="Title"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    responsiveLayout="scroll"
+    [loading]="loading"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [rowHover]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h2>My Recommended Books</h2>
+        <p-toast></p-toast>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="ImagePath">
+          Cover <p-sortIcon field="ImagePath"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Title">
+          Title <p-sortIcon field="Title"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Author">
+          Author <p-sortIcon field="Author"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+      <tr>
+        <td><img [src]="book.ImagePath" /></td>
+        <td>{{ book.Title }}</td>
+        <td>{{ book.Author }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{ books ? books.length : 0 }} Recommended books.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
